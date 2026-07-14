@@ -1,3 +1,4 @@
+# deploy for production server but now not use
 name: deploy-prod
 
 on:
@@ -22,6 +23,7 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER_PROD }}
           SSH_PORT: ${{ secrets.SSH_PORT_PROD }}
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_PROD }}
+          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
         run: |
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
